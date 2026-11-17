@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-slate-300 antialiased;
+    background-image:
+      radial-gradient(60rem 40rem at 85% -10%, rgba(47, 123, 255, 0.12), transparent 60%),
+      radial-gradient(50rem 35rem at -10% 40%, rgba(34, 211, 238, 0.06), transparent 60%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-panel/70 backdrop-blur-sm;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-navy-800 px-3 py-1 text-xs font-medium text-slate-300;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold tracking-wide transition duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-electric text-white shadow-lg shadow-electric/20 hover:bg-blue-500;
+  }
+  .btn-outline {
+    @apply btn border border-aqua/50 text-aqua hover:bg-aqua/10;
+  }
+  .btn-ghost {
+    @apply btn border border-line bg-navy-800 text-slate-200 hover:border-slate-500;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(47, 123, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47, 123, 255, 0.07) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+  }
+}
